@@ -7,7 +7,7 @@ class Block:
         self.vertex = []
         self.color = color
 
-        self.red_size = 3  # Reduce the size on draw a little bit
+        self.red_size = 3
 
     def move(self, delta_x, delta_y):
         self.pos_x += delta_x
@@ -15,7 +15,7 @@ class Block:
 
     def set_vertex(self):
         self.vertex = []
-        # Add the four vertex to the vertex list
+
         self.vertex.append(self.pos_x + self.red_size)
         self.vertex.append(self.pos_y + self.red_size)
 
@@ -31,7 +31,7 @@ class Block:
 
 class Snake:
     def __init__(self, vel_x, vel_y, size):
-        # The snake starts with just two blocks
+
         init_pos = 5 * vel_x
         self.head_color = [.5, 8., .6, 1.] * 4
         self.tail_color = [.0, 1., .0, 1.] * 4
@@ -54,7 +54,7 @@ class Snake:
 
         self.check_block_pos()
 
-        # Move the tail
+
         for i in range(len(self.blocks) - 1):
             next_block = self.blocks[i + 1]
             dif_x = next_block.pos_x - self.blocks[i].pos_x
@@ -62,7 +62,7 @@ class Snake:
 
             self.blocks[i].move(dif_x, dif_y)
 
-        # Move the head
+
         self.blocks[-1].move(self.vel_x, self.vel_y)
 
         return True
@@ -71,7 +71,7 @@ class Snake:
         next_head_pos_x = self.blocks[-1].pos_x + vel_x
         next_head_pos_y = self.blocks[-1].pos_y + vel_y
 
-        # Check if we are trying to move backwards
+
         dif_x = abs(next_head_pos_x - self.blocks[-2].pos_x)
         dif_y = abs(next_head_pos_y - self.blocks[-2].pos_y)
         if dif_x > 1. and dif_y > 1.:

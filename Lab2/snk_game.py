@@ -20,7 +20,7 @@ class MyWindow(pyglet.window.Window):
         self.n_squares_x = self.width // snake_vel
         self.n_squares_y = self.height // snake_vel
 
-        # Display a counter
+
         self.counter = 0
         self.best_score = 0
         self.label = pyglet.text.Label(
@@ -41,16 +41,15 @@ class MyWindow(pyglet.window.Window):
         self.game_over = False
 
     def on_draw(self):
-        # Window features #######################################
+
         pyglet.gl.glEnable(pyglet.gl.GL_BLEND)
         pyglet.gl.glBlendFunc(pyglet.gl.GL_SRC_ALPHA,
                               pyglet.gl.GL_ONE_MINUS_SRC_ALPHA)
         pyglet.gl.glClear(pyglet.gl.GL_COLOR_BUFFER_BIT)
-        #########################################################
 
-        # --- Draw the food -----------------------------
+
         if self.snake.eaten is True:
-            # if snake has eaten, draw a new food
+
             new_x = snake_vel * \
                 random.randint(2, self.n_squares_x - 2)
             new_y = snake_vel * \
@@ -67,20 +66,18 @@ class MyWindow(pyglet.window.Window):
         )
         food_vertices.draw(pyglet.gl.GL_POLYGON)
 
-        # --- Draw the snake -----------------------------
+
         for block in self.snake.blocks:
-            # Check the boundaries
+
             if block.pos_x < 0:
                 block.pos_x += self.width
             elif block.pos_x > self.width - snake_vel:
                 block.pos_x = 0
-                # block.pos_x -= self.width + self.snake.size
 
             if block.pos_y < 0:
                 block.pos_y += self.height
             elif block.pos_y > self.height - snake_vel:
                 block.pos_y = 0
-                # block.pos_y -= self.height + self.snake.size
 
             block.set_vertex()
 
@@ -92,23 +89,21 @@ class MyWindow(pyglet.window.Window):
 
             snake_vertices.draw(pyglet.gl.GL_POLYGON)
 
-        # --- Draw the counter -----------------------------
         text = 'Score:\t{}\nBest:\t{}'.format(self.counter, self.best_score)
-        # self.label.text = 'Score: {}\nBest of this game: {}'.format(
-        #     self.counter, self.best_score)
+
         self.label.text = text
         self.label.draw()
 
     def update(self, dt):
         if self.snake.dead is False:
-            # Check if the snake has eaten the food
+
             head = self.snake.blocks[-1]
             dif_pos_x = abs(head.pos_x - self.food.pos_x) - snake_vel * .5
             dif_pos_y = abs(head.pos_y - self.food.pos_y) - snake_vel * .5
             if dif_pos_x <= 1. and dif_pos_y <= 1.:
                 self.snake.eat(self.food.pos_x, self.food.pos_y)
                 self.counter += 1
-            # Move the snake
+
             self.snake.move_snake()
         else:
             if self.game_over is False:
@@ -121,7 +116,7 @@ class MyWindow(pyglet.window.Window):
                     self.best_score = self.counter
                 self.counter = 0
 
-                # Restart game
+
                 self.food = Block(snake_vel * 20, snake_vel *
                                   20, snake_vel, color=[1., 0., 0., .9] * 4)
                 self.snake = Snake(snake_vel, 0, snake_vel)
