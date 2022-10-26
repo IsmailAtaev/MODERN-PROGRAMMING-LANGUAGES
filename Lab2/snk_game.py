@@ -118,7 +118,7 @@ class MyWindow(pyglet.window.Window):
 
 
                 self.food = Block(snake_vel * 20, snake_vel *
-                                  20, snake_vel, color=[1., 0., 0., .9] * 4)
+                                  20, snake_vel, color=[1., 0., 5., .9] * 5)
                 self.snake = Snake(snake_vel, 0, snake_vel)
                 self.game_over = False
 

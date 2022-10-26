@@ -2,8 +2,7 @@
 import vk_api
 
 
-session = vk_api.VkApi(
-    token="***тут должен быть твой токен")
+session = vk_api.VkApi(token="")
 vk = session.get_api()
 #находит айди всех друзей и друзей друзей
 list=[]
@@ -30,7 +29,7 @@ def get_user_status(user_id):
 
            print(list)
            print(len(list))
-all=[]#<---скопируй сюда список list из консоли чтобы не гонять функцию get_user_status(user_id)
+all=[get_user_status(559627570)]#<---скопируй сюда список list из консоли чтобы не гонять функцию get_user_status(user_id)
 ints=list(set(all))
 # print(ints)
 # print(len(ints))
@@ -78,3 +77,6 @@ for i in range(0,50):
 
 
 get_user_status()
+
+
+

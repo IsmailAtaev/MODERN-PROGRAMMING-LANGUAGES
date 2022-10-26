@@ -33,8 +33,8 @@ class Snake:
     def __init__(self, vel_x, vel_y, size):
 
         init_pos = 5 * vel_x
-        self.head_color = [.5, 8., .6, 1.] * 4
-        self.tail_color = [.0, 1., .0, 1.] * 4
+        self.head_color = [.5, 8., .9, 1.] * 4
+        self.tail_color = [.0, 1., .5, 1.] * 4
         self.blocks = [
             Block(pos_x=-2 * vel_x + init_pos, pos_y=init_pos, size=size,
                   color=self.tail_color),
