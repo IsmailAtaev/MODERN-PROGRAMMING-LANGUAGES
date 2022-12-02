@@ -1,0 +1,32 @@
+.line {
+  background-color: red;
+  position: relative;
+}
+
+.ball {
+  width: 70px;
+  transform: rotate(90deg);
+  position: absolute;
+  left: 95%;
+}
+
+.ball:hover {
+  cursor: pointer;
+}
+
+.field {
+  height: 70vh;
+  position: relative;
+}
+
+.zone {
+  height: 25vh;
+}
+
+.board {
+  width: 200px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

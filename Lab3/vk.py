@@ -2,7 +2,7 @@
 import vk_api
 
 
-session = vk_api.VkApi(token="")
+session = vk_api.VkApi(token="vk1.a.1eJHPj-81CFZbIhZK19psksGwzisaQh8JrD7y8QV-pcSi6kbkiM8h0ezENDBuEO6lonEJFc4XCaUPYvRtXdSuMkHgl4Gg34RbWL0xFA-P2UBSc21DXLXvumd-WMwONYYJtSGBPknTnGx8-8cP-AfKIDqVP1GLtgGkotL4wRq_2z5zgdcJojcTuaLu3xOux8Zsde3fsNO7vqHUUAElkvlPA&expires")
 vk = session.get_api()
 #находит айди всех друзей и друзей друзей
 list=[]
@@ -14,11 +14,11 @@ def get_user_status(user_id):
            print(f"{user[0]['first_name']} ")
            list.append(user[0]['id'])
 
-    # print(list)
+       print(list)
        for i in range(0,2):
 
            user = session.method("friends.get", {"user_id": list[i]})#плучили друзей
-           # list.append(user["items"])
+           list.append(user["items"])
            for friend in user["items"]:
                user = session.method("users.get", {"user_ids": friend, "fields": "bdate,counters"})
                print( f"{user[0]['first_name']} ")
@@ -76,7 +76,7 @@ for i in range(0,50):
 
 
 
-get_user_status()
+get_user_status(559627570)
 
 
 

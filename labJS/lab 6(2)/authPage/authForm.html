@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auth</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="authForm.css">
+</head>
+<body>
+<div class="scene">
+    <div class="layer layer-bg"></div>
+</div>
+<div class="dws-wrapper">
+    <div class="wrapper__buttons">
+        <div class="wrapper__basket"></div>
+        <div class="wrapper__main" onclick="location.href='../index.html'"></div>
+    </div>
+    <div class="dws-form">
+        <input type="radio" id="tab-1" name="tabs" checked>
+        <label class="tab" for="tab-1" title="Вкладка 1">Авторизация</label>
+
+        <input type="radio" name="tabs" id="tab-2">
+        <label class="tab" for="tab-2" title="Вкладка 2">Регистрация</label>
+
+        <form id="form-1" class="tab-form">
+            <div class="box-input">
+                <input class="input" type="text" required>
+                <label>Введите E-mail</label>
+            </div>
+
+            <div class="box-input">
+                <input class="input" type="password" required>
+                <label>Введите пароль</label>
+            </div>
+
+            <a href="#" class="button">Войти</a>
+            <ul class="social">
+                <li><a href="#"><div><i class="fa fa-facebook"></i></div></a></li>
+                <li><a href="#"><div><i class="fa fa-twitter"></i></div></a></li>
+                <li><a href="#"><div><i class="fa fa-instagram"></i></div></a></li>
+                <li><a href="#"><div><i class="fa fa-vk"></i></div></a></li>
+                <li><a href="#"><div><i class="fa fa-youtube"></i></div></a></li>
+            </ul>
+            <a href="#">Я забыл свой E-mail или пароль</a>
+        </form>
+
+        <form id="form-2" class="tab-form">
+            <input class="input" type="text" placeholder="Введите свое имя">
+            <input class="input" type="text" placeholder="Введите свою фамилию">
+            <input class="input" type="date" placeholder="">
+            <input class="input" type="email" placeholder="Введите E-mail адрес">
+            <input class="input" type="password" placeholder="Введите пароль">
+            <a href="#" class="button">Регистрация</a>
+
+            <div class="recover">
+                <input type="checkbox" id="ckbox">
+                <label for="ckbox">Ознакомлен(-а) и принимаю <a href="#">условия регистрации</a></label>
+            </div>
+        </form>
+    </div>
+    <script src="../js/button.js"></script>
+    <script src="../js/service/buttonService.js"></script>
+    <script src="authForm.js"></script>
+</div>
+</body>
+</html>
